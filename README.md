@@ -3,6 +3,9 @@
 # Gatsby wolf blog with Netlify CMS
 
 https://wolf-blog.netlify.app/ Wolf Blog
+
 https://wolf-blog.netlify.app/admin/#/collections/blog Test CMS
+
 test netlify user: testerwolf@outlook.es 
+
 password: Tester12345
