@@ -47,15 +47,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       var previous = null;
       var next = null;
       for (let i = 0; i < posts.length; i++) {
-        if ( (index === posts.length - (1+i)) != null && posts[index + (1+i)] != null) {
+        if (previous === null && (index === posts.length - (1+i)) != null && posts[index + (1+i)] != null) {
           let checkPreviousTitle = "" + posts[index + (1+i)].frontmatter.title;
-          if (previous === null && !checkPreviousTitle.startsWith('--') ) {
-            previous = index === posts.length - 1 ? null : posts[index + 1]
+          if (!checkPreviousTitle.startsWith('--') ) {
+            previous = index === posts.length - (1+i) ? null : posts[index + (1+i)]
           }
         }
-        if ( (index === (0+i)) != null && posts[index - (1+i)] != null) {
+        if (next === null && (index === (0+i)) != null && posts[index - (1+i)] != null) {
           let checkNextTitle = "" + posts[index - (1+i)].frontmatter.title;
-          if (next === null && !checkNextTitle.startsWith('--') ) {
+          if (!checkNextTitle.startsWith('--') ) {
             next = index === (0+i) ? null : posts[index - (1+i)]
           }
         }
